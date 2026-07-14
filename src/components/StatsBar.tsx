@@ -1,0 +1,5 @@
+const FEATURES = [["♨", "Recetas auténticas", "Sabor tradicional colombiano"], ["♧", "Ingredientes frescos", "Productos de calidad todos los días"], ["♡", "Hecho con amor", "Como en casa, siempre"], ["▣", "Bebidas naturales", "Jugos y bebidas típicas"], ["⌁", "Ordena fácil", "Para llevar o delivery"]];
+
+export function StatsBar() {
+  return <section aria-label="Lo que nos hace especiales" className="feature-strip relative z-20 mx-auto -mt-16 max-w-[1180px] rounded-2xl bg-[#172d68] px-4 py-5 shadow-2xl sm:px-8 sm:py-6"><div className="grid grid-cols-2 gap-y-5 sm:grid-cols-5 sm:gap-0">{FEATURES.map(([icon, title, text], index) => <div key={title} className={`flex items-center gap-3 px-3 sm:px-5 ${index > 0 ? "sm:border-l sm:border-white/15" : ""}`}><span className="shrink-0 text-4xl font-light leading-none text-amarillo" aria-hidden="true">{icon}</span><span><strong className="block text-sm font-bold uppercase leading-tight tracking-wide text-white">{title}</strong><small className="mt-1 block text-xs leading-snug text-white/75">{text}</small></span></div>)}</div></section>;
+}
