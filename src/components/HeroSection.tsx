@@ -82,7 +82,7 @@ export function HeroSection() {
             <span aria-hidden="true">🇨🇴</span>
             <span>San Jose, CA</span>
             <span aria-hidden="true" className="text-amarillo/40">·</span>
-            <span>Desde 2020</span>
+            <span>Desde 2018</span>
           </p>
         </div>
 

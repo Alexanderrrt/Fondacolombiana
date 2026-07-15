@@ -1,5 +1,5 @@
 const STATS = [
-  { value: "Desde 2020", label: "Nacidos en San Jose" },
+  { value: "Desde 2018", label: "Nacidos en San Jose" },
   { value: "2",          label: "Ubicaciones" },
   { value: "6K+",        label: "Seguidores en Instagram" },
   { value: "64.5K",      label: "Likes en TikTok" },

@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { StatsBar } from "@/components/StatsBar";
 import { LocationGrid } from "@/components/LocationGrid";
 import { StorySection } from "@/components/StorySection";
+import { CinematicCollage } from "@/components/CinematicCollage";
 import { MenuSection } from "@/components/MenuSection";
 import { ReelsSection } from "@/components/ReelsSection";
 import { Footer } from "@/components/Footer";
@@ -26,6 +27,8 @@ export default function Home() {
       <LocationGrid />
       <ColDivider />
       <StorySection />
+      <ColDivider />
+      <CinematicCollage />
       <ColDivider />
       <MenuSection />
       <ColDivider />

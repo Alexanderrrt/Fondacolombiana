@@ -36,7 +36,7 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-crema/50">
-              Cocina colombiana auténtica de la familia Ruiz desde 2020.
+              Cocina colombiana auténtica de la familia Ruiz desde 2018.
             </p>
             <p className="mt-2 font-serif text-base italic text-crema/40">
               &ldquo;{STORY.motto}&rdquo;
@@ -109,7 +109,7 @@ export function Footer() {
       <div className="border-t border-crema/8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-6 text-xs text-crema/30 sm:flex-row sm:px-6">
           <p>&copy; {year} {BRAND.name}. Todos los derechos reservados.</p>
-          <p>San Jose, California &middot; Desde 2020</p>
+          <p>San Jose, California &middot; Desde 2018</p>
         </div>
       </div>
     </footer>
