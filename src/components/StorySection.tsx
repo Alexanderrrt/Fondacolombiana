@@ -5,7 +5,7 @@ const heritageDish = MENU_HIGHLIGHTS.find((m) => m.isHeritage)!;
 
 const TIMELINE = [
   {
-    year: "2019",
+    year: "2018",
     heading: "Todo empieza en la mesa de la cocina",
     body: STORY.origin.text,
     dot: "bg-amarillo",
@@ -94,7 +94,7 @@ export function StorySection() {
                     </span>
                   </div>
                   <p className="mt-5 text-center text-xs leading-relaxed text-crema/30 italic">
-                    La misma receta. Sin cambios desde 2019.
+                    La misma receta. Sin cambios desde 2018.
                   </p>
                 </div>
               </div>
