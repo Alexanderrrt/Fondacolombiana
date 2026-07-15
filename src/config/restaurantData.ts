@@ -40,9 +40,9 @@ export const STORY = {
   heroSlogan: "¡Tan rico como en tu segunda casa!",
   heroSubSlogan: "Tu comida colombiana favorita, a un clic de tu puerta.",
   origin: {
-    year: 2019,
+    year: 2018,
     text:
-      "Todo empezó en 2019 en la mesa de la cocina familiar — la familia Ruiz envolviendo " +
+      "Todo empezó en 2018 en la mesa de la cocina familiar — la familia Ruiz envolviendo " +
       "tamales auténticos del Huila a mano y vendiéndolos desde casa, vecino a vecino.",
   },
   opening: {
