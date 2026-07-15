@@ -22,16 +22,6 @@
 
 :root { color-scheme: light; }
 
-.hero-reference { min-height: 680px; background: #15100b; }
-.hero-inner { min-height: 680px; }
-.hero-copy { animation: hero-rise .8s cubic-bezier(.22,1,.36,1) both; }
-.hero-script { font-family: "Brush Script MT", "Segoe Script", cursive; font-weight: 700; }
-.hero-brush { background: linear-gradient(90deg, #f5b700 0 28%, #1687d4 28% 57%, #d6262b 57% 100%); transform: rotate(-1deg) skewX(-20deg); box-shadow: 0 2px 0 #f5b700; }
-.hero-vignette { box-shadow: inset 0 0 140px rgba(0,0,0,.68); }
-@keyframes hero-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-@media (max-width: 767px) { .hero-reference, .hero-inner { min-height: 720px; } .hero-inner { padding-top: 7rem; } .feature-strip { margin-left: 1rem; margin-right: 1rem; } }
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;

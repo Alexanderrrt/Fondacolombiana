@@ -1,33 +1,142 @@
 "use client";
 
 import Image from "next/image";
-import { BRAND, STORY } from "@/config/restaurantData";
+import { STORY } from "@/config/restaurantData";
 import { useOrderDrawer } from "./OrderDrawerContext";
 
-function LocationIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M12 2.5a7 7 0 0 0-7 7c0 5 7 12 7 12s7-7 7-12a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" /></svg>; }
+// Subtle floating ember particles
+const PARTICLES = [
+  { left: "15%", dur: "6s",  delay: "0s",    drift: "20px" },
+  { left: "30%", dur: "8s",  delay: "1.5s",  drift: "-15px" },
+  { left: "50%", dur: "7s",  delay: "0.8s",  drift: "10px" },
+  { left: "65%", dur: "9s",  delay: "2.2s",  drift: "-20px" },
+  { left: "80%", dur: "6.5s",delay: "1s",    drift: "15px" },
+  { left: "45%", dur: "8.5s",delay: "3s",    drift: "-8px" },
+];
+
+// Split headline into individually-animated word spans
+function AnimatedHeadline({ text }: { text: string }) {
+  const words = text.split(" ");
+  return (
+    <>
+      {words.map((word, i) => (
+        <span key={i} className="word-reveal inline-block mr-[0.25em]">
+          <span style={{ animationDelay: `${0.1 + i * 0.12}s` }}>
+            {word}
+          </span>
+        </span>
+      ))}
+    </>
+  );
+}
 
 export function HeroSection() {
   const { openDrawer } = useOrderDrawer();
+
   return (
-    <section id="hero" aria-label="Inicio — Fonda Colombiana" className="hero-reference section-grain relative isolate overflow-visible">
-      <div className="absolute inset-0 -z-20"><Image src="/media/food-3.jpg" alt="Plato colombiano de carne con hogao" fill priority sizes="100vw" className="object-cover object-center" /></div>
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(12,10,8,.94)_0%,rgba(18,13,8,.78)_34%,rgba(18,13,8,.2)_70%,rgba(10,8,6,.5)_100%),linear-gradient(0deg,rgba(10,8,5,.72),transparent_55%)]" />
-      <div className="hero-inner relative mx-auto flex min-h-[680px] max-w-[1280px] flex-col px-5 pb-28 pt-28 sm:px-8 lg:px-12">
-        <div className="hero-copy relative z-10 mt-auto max-w-[540px] pb-2 lg:mb-5">
-          <p className="hero-script text-3xl text-amarillo sm:text-4xl">Bienvenidos a</p>
-          <h1 className="mt-2 font-sans text-6xl font-black uppercase leading-[.88] tracking-[-.055em] text-white sm:text-8xl">Fonda<br /><span className="text-amarillo">Colombiana</span></h1>
-          <p className="mt-5 text-2xl font-bold tracking-wide text-[#1687d4] sm:text-3xl">Food &amp; Drinks</p>
-          <div className="hero-brush mt-2 h-2 w-[330px] max-w-full" aria-hidden="true" />
-          <p className="mt-5 max-w-[390px] text-base leading-relaxed text-white/90 sm:text-lg">Disfruta los sabores auténticos de Colombia. Comida casera, hecha con amor y los mejores ingredientes. Tan rico como en casa.</p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <button type="button" onClick={openDrawer} className="btn-shine inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-amarillo px-7 text-sm font-black uppercase tracking-wide text-negro shadow-lg transition hover:bg-yellow-300 active:scale-[.98]"><span aria-hidden="true">✣</span> Ver menú</button>
-            <a href="#locations" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/80 px-7 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white hover:text-negro"><LocationIcon /> Cómo llegar</a>
-          </div>
-        </div>
-        <div className="pointer-events-none absolute bottom-24 right-4 hidden max-w-[300px] rotate-[-5deg] text-right lg:block"><p className="hero-script text-4xl leading-[.9] text-white">“Tan Rico<br />Como en Casa”</p><div className="mt-2 h-1 rotate-[-2deg] bg-amarillo" /></div>
+    <section
+      id="hero"
+      className="section-grain relative flex min-h-[92dvh] items-center justify-center overflow-hidden"
+      aria-label="Inicio — Fonda Colombiana"
+    >
+      {/* Ken Burns background image */}
+      <div className="absolute inset-0 animate-ken-burns">
+        <Image
+          src="/media/hero.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       </div>
-      <div className="hero-vignette pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
-      <span className="sr-only">{STORY.motto} — {BRAND.name}</span>
+
+      {/* Layered dark overlay */}
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(10,61,98,0.5)_0%,transparent_60%),linear-gradient(to_bottom,rgba(26,20,16,0.5)_0%,rgba(26,20,16,0.82)_60%,rgba(43,35,28,1)_100%)]" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(26,20,16,0.55)_100%)]" />
+
+      {/* Ember particles */}
+      {PARTICLES.map((p, i) => (
+        <div
+          key={i}
+          aria-hidden="true"
+          className="particle"
+          style={{
+            left: p.left,
+            "--dur": p.dur,
+            "--delay": p.delay,
+            "--drift": p.drift,
+          } as React.CSSProperties}
+        />
+      ))}
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-3xl px-5 py-24 text-center">
+
+        {/* Eyebrow with pulsing border */}
+        <div className="mb-6 flex justify-center"
+          style={{ animation: "fade-up 0.6s 0.05s both" }}>
+          <p className="border-pulse inline-flex items-center gap-2 rounded-full border bg-amarillo/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amarillo backdrop-blur-sm sm:text-xs"
+            style={{ animation: "word-up 0.6s 0.05s both" }}>
+            <span aria-hidden="true">🇨🇴</span>
+            <span>San Jose, CA</span>
+            <span aria-hidden="true" className="text-amarillo/40">·</span>
+            <span>Desde 2020</span>
+          </p>
+        </div>
+
+        {/* Animated headline */}
+        <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-crema sm:text-6xl lg:text-7xl xl:text-8xl">
+          <AnimatedHeadline text={STORY.heroSlogan} />
+        </h1>
+
+        {/* Sub-headline */}
+        <p
+          className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-crema/75 sm:text-xl"
+          style={{ animation: "word-up 0.7s 0.7s both" }}
+        >
+          {STORY.heroSubSlogan}
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          style={{ animation: "word-up 0.6s 0.85s both" }}
+        >
+          <button
+            type="button"
+            onClick={openDrawer}
+            className="btn-shine min-h-[54px] rounded-full bg-rojo px-9 text-base font-bold text-crema shadow-[0_8px_32px_rgba(214,38,43,0.45)] transition hover:bg-rojo-deep hover:shadow-[0_12px_40px_rgba(214,38,43,0.6)] active:scale-[0.98]"
+          >
+            Ordenar para Recoger
+          </button>
+          <a
+            href="#story"
+            className="btn-shine min-h-[54px] inline-flex items-center gap-2 rounded-full border border-crema/25 bg-crema/8 px-8 text-base font-semibold text-crema backdrop-blur-sm transition hover:bg-crema/16"
+          >
+            Nuestra Historia
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </a>
+        </div>
+
+        {/* Motto */}
+        <p
+          className="mt-12 font-serif text-base italic text-crema/40 sm:text-lg"
+          style={{ animation: "word-up 0.6s 1s both" }}
+        >
+          &ldquo;{STORY.motto}&rdquo; &mdash; {STORY.family}
+        </p>
+      </div>
+
+      {/* Scroll indicator */}
+      <div aria-hidden="true" className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <div className="flex h-10 w-6 items-start justify-center rounded-full border border-crema/20 pt-2">
+          <div className="h-2 w-0.5 animate-bounce rounded-full bg-crema/40" />
+        </div>
+      </div>
     </section>
   );
 }

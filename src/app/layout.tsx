@@ -5,6 +5,7 @@ import { BRAND, STORY } from "@/config/restaurantData";
 import { Navbar } from "@/components/Navbar";
 import { MobileOrderCTA } from "@/components/MobileOrderCTA";
 import { DailyMenuBubble } from "@/components/DailyMenuBubble";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { CursorGlow } from "@/components/CursorGlow";
 import { OrderDrawerProvider } from "@/components/OrderDrawerContext";
 import { StructuredData } from "@/components/StructuredData";
@@ -76,6 +77,7 @@ export default function RootLayout({
           >
             Ir al contenido principal
           </a>
+          <AnnouncementBar />
           <Navbar />
           <main id="main-content" className="flex-1" tabIndex={-1}>
             {children}
