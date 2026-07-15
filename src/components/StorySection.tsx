@@ -12,7 +12,7 @@ const TIMELINE = [
     line: "bg-amarillo/20",
   },
   {
-    year: "Enero 2020",
+    year: "Enero 2018",
     heading: "Las puertas abren — el mundo se cierra",
     body: STORY.opening.text,
     dot: "bg-rojo",

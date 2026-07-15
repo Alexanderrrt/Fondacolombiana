@@ -46,9 +46,9 @@ export const STORY = {
       "tamales auténticos del Huila a mano y vendiéndolos desde casa, vecino a vecino.",
   },
   opening: {
-    date: "Enero 2020",
+    date: "Enero 2018",
     text:
-      "En enero de 2020 abrieron sus primeras puertas. Semanas después el mundo cerró — " +
+      "En enero de 2018 abrieron sus primeras puertas. Semanas después el mundo cerró — " +
       "pero la familia siguió cocinando, siguió envolviendo tamales, y la comunidad siguió llegando.",
   },
   today: {
