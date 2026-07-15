@@ -6,18 +6,19 @@ export function CinematicCollage() {
     <section aria-label="Sabores de la Fonda" className="section-grain relative overflow-hidden bg-negro py-10 sm:py-14">
       <ScrollReveal>
         <div className="relative mx-auto max-w-[1400px] overflow-hidden border-y border-crema/10 bg-carbon shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:rounded-2xl sm:border">
-          <div className="relative aspect-[3.18/1] min-h-[250px] overflow-hidden sm:min-h-[330px]">
+          <div className="relative overflow-hidden">
             <Image
               src="/media/fonda-cinematographic-collage.png"
               alt="Collage cinematográfico de platos y momentos de Fonda Colombiana"
-              fill
+              width={1906}
+              height={600}
               sizes="(max-width: 1400px) 100vw, 1400px"
-              className="object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.025]"
+              className="block h-auto w-full transition-transform duration-[1400ms] ease-out hover:scale-[1.025]"
               priority={false}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-negro/75 via-negro/10 to-negro/35" />
             <div className="absolute inset-0 bg-gradient-to-t from-negro/70 via-transparent to-negro/10" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-6 sm:p-10">
+            <div className="absolute inset-x-0 bottom-0 hidden items-end justify-between gap-6 p-6 sm:flex sm:p-10">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-amarillo sm:text-xs">
                   Hecho para compartir
@@ -30,6 +31,17 @@ export function CinematicCollage() {
                 Fonda Colombiana
               </span>
             </div>
+          </div>
+          <div className="border-t border-crema/10 bg-carbon px-5 py-5 sm:hidden">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-amarillo">
+              Hecho para compartir
+            </p>
+            <h2 className="mt-2 font-serif text-3xl font-extrabold leading-none text-crema">
+              Sabor que se queda contigo
+            </h2>
+            <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-crema/45">
+              Fonda Colombiana
+            </p>
           </div>
         </div>
       </ScrollReveal>
