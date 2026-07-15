@@ -1,8 +1,7 @@
 const STATS = [
   { value: "Desde 2018", label: "Nacidos en San Jose" },
   { value: "2",          label: "Ubicaciones" },
-  { value: "6K+",        label: "Seguidores en Instagram" },
-  { value: "64.5K",      label: "Likes en TikTok" },
+  { value: "1M+",        label: "Colombianos servidos en California" },
   { value: "11AM–9:30PM", label: "Abiertos Cada Día" },
 ];
 
